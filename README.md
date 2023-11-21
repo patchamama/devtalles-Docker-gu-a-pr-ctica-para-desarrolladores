@@ -43,7 +43,11 @@ docker image rm <nombre o id> // elimina la imagen del contenedor
 
 // Variables de entorno
 docker pull postgres // https://hub.docker.com/_/postgres
-docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres  // se ejecuta la imagen y sí no está se descarga
+docker run --name some-postgres -dp 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres  // se ejecuta la imagen en el puerto local 5432 y sí no está se descarga. User: postgres y pass: mysecretpassword
+
+// Usar la imagen de Postgres
+docker container ls // muestra los contenedores y puertos abiertos
+// abrir tableplus.app y conectar
 ```
 
 - []()
