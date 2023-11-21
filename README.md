@@ -18,7 +18,19 @@ Aquí aprenderás Docker y para qué te puede servir, aprende a utilizar y crear
 
 // Hola Mundo en Docker
 docker pull hello-world
-docker container run hello-world
+docker container run hello-world // ejecuta la imagen hello-work
+
+// Borrar contenedores e imágenes
+docker container --help // muestra la ayuda
+docker container ls // Lista los comandos
+docker container ls -a // Muestra todos los contenedores
+docker container rm <CONTAINER IDs separados por espacio y pueden ser los primeros 3 caracteres> // Elimina un contenedor
+docker container prune // Elimina todos los contenedores detenidos
+
+docker image --help // lista ayuda con imagenes
+docker image ls -a // lista todas las imágenes
+docker image rm <IMAGE ID> // Imagen a borrar
+docker image rm hello-world
 ```
 
 - []()
