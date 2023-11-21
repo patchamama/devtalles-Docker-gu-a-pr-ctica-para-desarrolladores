@@ -32,13 +32,18 @@ docker image ls -a // lista todas las imágenes
 docker image rm -f <IMAGE ID> // Imagen a borrar de forma forzada (sí se está ejecutando)
 docker image rm hello-world
 
-//Publish and Detached modes
+// Publish and Detached modes
 docker container run docker/getting-started  // se descarga y ejecuta el contenedor pero no es accesible
 docker container stop <nombre o id>  // detiene la ejecución del contenedor
 docker container ls // lista los container
 docker run -d -p 8080:80 docker/getting-started  // ejecuta el container y mapea el puerto 8080 de mi equipo con el 80 del contenedor
 docker container start <nombre o id>  // se vuelve a ejecutar el container en el mismo puerto con que se ejecutó anteriormente
 docker container prune // Elimina todos los contenedores detenidos
+docker image rm <nombre o id> // elimina la imagen del contenedor
+
+// Variables de entorno
+docker pull postgres // https://hub.docker.com/_/postgres
+docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres  // se ejecuta la imagen y sí no está se descarga
 ```
 
 - []()
@@ -57,7 +62,7 @@ docker container prune // Elimina todos los contenedores detenidos
 - [Instalaciones necesarias](https://gist.github.com/Klerith/3f611ff0e5c15b733ac63365ab310a35)
 - [Guías de atajos Docker](https://devtalles.com/files/docker-cheat-sheet.pdf)
 - [Guías de atajos Docker Local](docs/docker-cheat-sheet.pdf)
-- []()
+- [Repositorio de imagenes](https://hub.docker.com/)
 - []()
 - []()
 - []()
