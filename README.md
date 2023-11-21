@@ -12,9 +12,15 @@ Aquí aprenderás Docker y para qué te puede servir, aprende a utilizar y crear
 - [Guías de atajos Docker](https://devtalles.com/files/docker-cheat-sheet.pdf)
 - [Guías de atajos Docker Local](docs/docker-cheat-sheet.pdf)
 
-## Sección 2: Bases de Dockeer
+## Sección 2: Bases de Docker
 
-- []()
+```sh
+
+// Hola Mundo en Docker
+docker pull hello-world
+docker container run hello-world
+```
+
 - []()
 - []()
 - []()
@@ -27,7 +33,10 @@ Aquí aprenderás Docker y para qué te puede servir, aprende a utilizar y crear
 
 ## Recursos
 
-- []()
+- [https://hub.docker.com/\_/hello-world](https://hub.docker.com/_/hello-world)
+- [Instalaciones necesarias](https://gist.github.com/Klerith/3f611ff0e5c15b733ac63365ab310a35)
+- [Guías de atajos Docker](https://devtalles.com/files/docker-cheat-sheet.pdf)
+- [Guías de atajos Docker Local](docs/docker-cheat-sheet.pdf)
 - []()
 - []()
 - []()
