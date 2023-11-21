@@ -29,8 +29,16 @@ docker container prune // Elimina todos los contenedores detenidos
 
 docker image --help // lista ayuda con imagenes
 docker image ls -a // lista todas las imágenes
-docker image rm <IMAGE ID> // Imagen a borrar
+docker image rm -f <IMAGE ID> // Imagen a borrar de forma forzada (sí se está ejecutando)
 docker image rm hello-world
+
+//Publish and Detached modes
+docker container run docker/getting-started  // se descarga y ejecuta el contenedor pero no es accesible
+docker container stop <nombre o id>  // detiene la ejecución del contenedor
+docker container ls // lista los container
+docker run -d -p 8080:80 docker/getting-started  // ejecuta el container y mapea el puerto 8080 de mi equipo con el 80 del contenedor
+docker container start <nombre o id>  // se vuelve a ejecutar el container en el mismo puerto con que se ejecutó anteriormente
+docker container prune // Elimina todos los contenedores detenidos
 ```
 
 - []()
