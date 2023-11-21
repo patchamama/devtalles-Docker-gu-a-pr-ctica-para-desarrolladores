@@ -100,6 +100,14 @@ docker container ls -a
 # me permite ver el password generado automáticamente (con usuario root)
 docker container logs <container id> | grep PASSWORD
 # abrir tableplus.app y conectar
+
+## Tarea - Borrar todas las imágenes de Postgres
+# Detener imágenes que están corriendo
+docker container ls -a
+docker container stop <id>
+# Eliminar todas las imágenes que tengo de postgres
+docker image ls -a
+docker image rm <id>
 ```
 
 ## Recursos
