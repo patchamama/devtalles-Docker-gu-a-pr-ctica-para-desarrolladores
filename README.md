@@ -15,68 +15,92 @@ Aquí aprenderás Docker y para qué te puede servir, aprende a utilizar y crear
 ## Sección 2: Bases de Docker
 
 ```sh
-
-// Hola Mundo en Docker
+## Hola Mundo en Docker
 docker pull hello-world
-docker container run hello-world // ejecuta la imagen hello-work
+# ejecuta la imagen hello-work
+docker container run hello-world
 
-// Borrar contenedores e imágenes
-docker container --help // muestra la ayuda
-docker container ls // Lista los comandos
-docker container ls -a // Muestra todos los contenedores
-docker container rm <CONTAINER IDs separados por espacio y pueden ser los primeros 3 caracteres> // Elimina un contenedor
-docker container prune // Elimina todos los contenedores detenidos
-
-docker image --help // lista ayuda con imagenes
-docker image ls -a // lista todas las imágenes
-docker image rm -f <IMAGE ID> // Imagen a borrar de forma forzada (sí se está ejecutando)
+## Borrar contenedores e imágenes
+# muestra la ayuda
+docker container --help
+# Lista los comandos
+docker container ls
+# Muestra todos los contenedores
+docker container ls -a
+# Elimina un contenedor
+docker container rm <CONTAINER IDs separados por espacio y pueden ser los primeros 3 caracteres>
+# Elimina todos los contenedores detenidos
+docker container prune
+# lista ayuda con imagenes
+docker image --help
+# lista todas las imágenes
+docker image ls -a
+# Imagen a borrar de forma forzada (sí se está ejecutando)
+docker image rm -f <IMAGE ID>
 docker image rm hello-world
 
-// Publish and Detached modes
-docker container run docker/getting-started  // se descarga y ejecuta el contenedor pero no es accesible
-docker container stop <nombre o id>  // detiene la ejecución del contenedor
-docker container ls // lista los container
-docker run -d -p 8080:80 docker/getting-started  // ejecuta el container y mapea el puerto 8080 de mi equipo con el 80 del contenedor
-docker container start <nombre o id>  // se vuelve a ejecutar el container en el mismo puerto con que se ejecutó anteriormente
-docker container prune // Elimina todos los contenedores detenidos
-docker image rm <nombre o id> // elimina la imagen del contenedor
+## Publish and Detached modes
+# se descarga y ejecuta el contenedor pero no es accesible
+docker container run docker/getting-started
+# detiene la ejecución del contenedor
+docker container stop <nombre o id>
+# lista los container
+docker container ls
+# ejecuta el container y mapea el puerto 8080 de mi equipo con el 80 del contenedor
+docker run -d -p 8080:80 docker/getting-started
+# se vuelve a ejecutar el container en el mismo puerto con que se ejecutó anteriormente
+docker container start <nombre o id>
+#  Elimina todos los contenedores detenidos
+docker container prune
+# elimina la imagen del contenedor
+docker image rm <nombre o id>
 
-// Variables de entorno
-docker pull postgres // https://hub.docker.com/_/postgres
-docker run --name some-postgres -dp 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres  // se ejecuta la imagen en el puerto local 5432 y sí no está se descarga. User: postgres y pass: mysecretpassword
+## Variables de entorno
+# https://hub.docker.com/_/postgres
+docker pull postgres
+# se ejecuta la imagen en el puerto local 5432 y sí no está se descarga. User: postgres y pass: mysecretpassword
+docker run --name some-postgres -dp 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres
 
-// Usar la imagen de Postgres
-docker container ls // muestra los contenedores y puertos abiertos
-// abrir tableplus.app y conectar
+# Usar la imagen de Postgres
+# muestra los contenedores y puertos abiertos
+docker container ls
+# abrir tableplus.app y conectar
 
-// Multiples instancias de Postgres
-// primera instancia de nombre postgres-alpha corriendo localmente en el puerto 5432
+## Multiples instancias de Postgres
+# primera instancia de nombre postgres-alpha corriendo localmente en el puerto 5432
 docker container run \
 --name postgres-alpha \
 -e POSTGRES_PASSWORD=mypass1 \
 -dp 5432:5432 \
 postgres
-// segunda instancia de nombre postgres-alpha1 corriendo localmente en el puerto 5433
+# segunda instancia de nombre postgres-alpha1 corriendo localmente en el puerto 5433
 docker container run \
 --name postgres-alpha1 \
 -e POSTGRES_PASSWORD=mypass1 \
 -dp 5433:5432 \
 postgres:14-bookworm
-//listar contenedores activos
+# listar contenedores activos
 docker container ls -a
-// parar ambos contenedor y removerlos
+# parar ambos contenedor y removerlos
 docker container rm -f id1 id2
-```
 
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
+## Logs del contenedor
+docker container logs <container id>
+# va mostrando live el log mientras se actualiza
+docker logs --follow CONTAINER
+# descargar la imagen
+docker pull mariadb:jammy
+# ejecutar el contenedor en el puerto 3307 local (el 3306 está ocupado)
+docker container run \
+-e MARIADB_RANDOM_ROOT_PASSWORD=yes \
+-dp 3307:3306 \
+mariadb:jammy
+# obtener listado de contenedores activos
+docker container ls -a
+# me permite ver el password generado automáticamente (con usuario root)
+docker container logs <container id> | grep PASSWORD
+# abrir tableplus.app y conectar
+```
 
 ## Recursos
 
@@ -85,9 +109,3 @@ docker container rm -f id1 id2
 - [Guías de atajos Docker](https://devtalles.com/files/docker-cheat-sheet.pdf)
 - [Guías de atajos Docker Local](docs/docker-cheat-sheet.pdf)
 - [Repositorio de imagenes](https://hub.docker.com/)
-- []()
-- []()
-- []()
-- []()
-- []()
-- []()
