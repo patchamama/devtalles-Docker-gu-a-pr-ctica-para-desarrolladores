@@ -48,6 +48,24 @@ docker run --name some-postgres -dp 5432:5432 -e POSTGRES_PASSWORD=mysecretpassw
 // Usar la imagen de Postgres
 docker container ls // muestra los contenedores y puertos abiertos
 // abrir tableplus.app y conectar
+
+// Multiples instancias de Postgres
+// primera instancia de nombre postgres-alpha corriendo localmente en el puerto 5432
+docker container run \
+--name postgres-alpha \
+-e POSTGRES_PASSWORD=mypass1 \
+-dp 5432:5432 \
+postgres
+// segunda instancia de nombre postgres-alpha1 corriendo localmente en el puerto 5433
+docker container run \
+--name postgres-alpha1 \
+-e POSTGRES_PASSWORD=mypass1 \
+-dp 5433:5432 \
+postgres:14-bookworm
+//listar contenedores activos
+docker container ls -a
+// parar ambos contenedor y removerlos
+docker container rm -f id1 id2
 ```
 
 - []()
