@@ -48,6 +48,8 @@ docker container stop <nombre o id>
 docker container ls
 # ejecuta el container y mapea el puerto 8080 de mi equipo con el 80 del contenedor
 docker run -d -p 8080:80 docker/getting-started
+# Abrir el navegador en el puerto 8080
+browse http://localhost:8080/
 # se vuelve a ejecutar el container en el mismo puerto con que se ejecutó anteriormente
 docker container start <nombre o id>
 #  Elimina todos los contenedores detenidos
@@ -113,6 +115,8 @@ docker image rm <id>
 ## Recursos
 
 - [https://hub.docker.com/\_/hello-world](https://hub.docker.com/_/hello-world)
+- [https://hub.docker.com/\_/mariadb](https://hub.docker.com/_/mariadb)
+- [https://hub.docker.com/\_/postgres](https://hub.docker.com/_/postgres)
 - [Instalaciones necesarias](https://gist.github.com/Klerith/3f611ff0e5c15b733ac63365ab310a35)
 - [Guías de atajos Docker](https://devtalles.com/files/docker-cheat-sheet.pdf)
 - [Guías de atajos Docker Local](docs/docker-cheat-sheet.pdf)
