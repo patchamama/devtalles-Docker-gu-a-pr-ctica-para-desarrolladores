@@ -10,6 +10,9 @@ Aquí aprenderás Docker y para qué te puede servir, aprende a utilizar y crear
 
 - [Instalaciones necesarias](https://gist.github.com/Klerith/3f611ff0e5c15b733ac63365ab310a35)
 - [Guías de atajos Docker](https://devtalles.com/files/docker-cheat-sheet.pdf)
+- [Guías de atajos Docker Local](docs/docker-cheat-sheet.pdf)
+
+## Sección 2: Bases de Dockeer
 
 - []()
 - []()
