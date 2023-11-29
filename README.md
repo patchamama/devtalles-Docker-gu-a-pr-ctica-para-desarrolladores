@@ -219,8 +219,37 @@ docker network create world-app
 docker network connect world-app <id-world-app>
 docker network connect world-app <id-phpmyadmin>
 docker network inspect world-app
+```
 
+- Asignar la red desde la iniciación
 
+```sh
+# listar y eliminar dos containers
+docker container ls
+docker container rm -f <id1> <id2> ....
+
+# Sí no existe la red, crearla... se puede probar con el cmd `docker network ls`
+docker network create world-app
+
+# Crear container con red automáticamente
+docker container run \
+--name world-db \
+--env MARIADB_USER=example-user \
+--env MARIADB_PASSWORD=user-password \
+--env MARIADB_ROOT_PASSWORD=root-secret-password \
+--env MARIADB_DATABASE=world-db \
+-dp 3306:3306 \
+--volume world-db:/var/lib/mysql \
+--network word-app \
+mariadb:jammy
+
+docker container run \
+--name phpmyadmin \
+-d \
+-e PMA_ARBITRARY=1 \
+-p 8080:80 \
+--network word-app \
+phpmyadmin:5.2.0-apache
 
 ```
 
