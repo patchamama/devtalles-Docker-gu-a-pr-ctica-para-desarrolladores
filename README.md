@@ -185,7 +185,6 @@ Sí se borra el contenedor, los datos se mantienen persistentes en `/var/lib/mys
 - PHPMyAdmin
 
 ```sh
-
 # crear volumen (https://hub.docker.com/_/phpmyadmin/tags) con tag `5.2.0-apache`
 docker container run \
 --name phpmyadmin \
@@ -197,8 +196,31 @@ phpmyadmin:5.2.0-apache
 # Abrir phpmyadmin en el browser cargado en el contenedor (no es necesario tener datos persistentes)
 browser http://localhost:8080
 # El contenedor no tiene acceso al de la base de datos de world-db con mariaDB al no estar el segundo expuesto.
+```
 
-# Conectar el contenedor de phpmyadmin con el de mariaDB con word-db (dos conetenedores)
+- Redes de contenedores
+
+_Ver contenido de https://docs.docker.com/engine/tutorials/networkingcontainers/_
+
+```sh
+# Ver todas la redes activas
+docker network ls
+
+# Eliminar o pulgar todas las redes activas
+docker network prune
+
+# Crear primera red
+docker network create world-app
+docker network ls
+docker container ls
+
+# Conectar la red de ambos contenedores: phpmyadmin y world-db
+docker network create world-app
+docker network connect world-app <id-world-app>
+docker network connect world-app <id-phpmyadmin>
+docker network inspect world-app
+
+
 
 ```
 
