@@ -90,7 +90,7 @@ docker container rm -f id1 id2
 docker container logs <container id>
 # va mostrando live el log mientras se actualiza
 docker logs --follow CONTAINER
-# descargar la imagen
+# descargar la imagen con tag jammy
 docker pull mariadb:jammy
 # ejecutar el contenedor en el puerto 3307 local (el 3306 está ocupado)
 docker container run \
@@ -114,8 +114,40 @@ docker image rm <id>
 
 ## Sección 3: Volúmenes y Redes
 
-```sh
+Para hacer persistente el contenido de los contenedores, es necesario moverlos a volúmenes.
 
+- Ejercicio sin volúmenes - Montar Base de Datos
+
+1. Montar la imagen de MariaDB con el tag jammy, publicar en el puerto 3306 del contenedor con el puerto 3306 de nuestro equipo, colocarle el nombre al contenedor de **world-db** (--name world-db) y definir las siguientes variables de entorno:
+   - MARIADB_USER=example-user
+   - MARIADB_PASSWORD=user-password
+   - MARIADB_ROOT_PASSWORD=root-secret-password
+   - MARIADB_DATABASE=world-db
+
+```sh
+# descargar la imagen con tag jammy (realmente no es necesario pues el próximo comando descarga el docker sino existe)
+docker pull mariadb:jammy
+
+# ejecutar el contenedor en el puerto 3306 local y usar el docker `mariadb` con tag `jammy`
+docker container run \
+--name world-db \
+-e MARIADB_USER=example-user \
+-e MARIADB_PASSWORD=user-password \
+-e MARIADB_ROOT_PASSWORD=root-secret-password \
+-e MARIADB_DATABASE=world-db \
+-dp 3306:3306 \
+mariadb:jammy
+
+```
+
+2. Conectarse usando Table Plus a la base de datos con las credenciales del usuario (NO EL ROOT)
+3. Conectarse a la base de datos `world-db`
+4. Ejecutar el query de creación de tablas e inserción proporcionado (https://import.cdn.thinkific.com/643563/courses/2100309/world-221207-123207.sql)
+5. Revisar que efectivamente tengamos la data (Cmd + R para refrescar Table-plus y ver las tablas)
+
+```sh
+docker container ls
+docker container rm -f <id-del-container>
 ```
 
 ## Recursos
