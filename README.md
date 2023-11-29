@@ -196,6 +196,9 @@ phpmyadmin:5.2.0-apache
 # Abrir phpmyadmin en el browser cargado en el contenedor (no es necesario tener datos persistentes)
 browser http://localhost:8080
 # El contenedor no tiene acceso al de la base de datos de world-db con mariaDB al no estar el segundo expuesto.
+# server: world-db
+# user: example-user
+# password: user-password
 ```
 
 - Redes de contenedores
@@ -256,12 +259,18 @@ phpmyadmin:5.2.0-apache
 
 ```sh
 docker container ls
-docker volumens ls
+docker volume ls
+docker image ls
 
 docker container rm -f <id1 id2 ids....>
-docker volumes rm -f
+docker volume rm -f <volume-name> //se borrarían los datos persistentes en el hdd
+docker image rm - <image-name>
 docker network prune
 ```
+
+- Bind Volumes
+
+_Permite conectar dos o varios filesystem. También podremos install apps, módulos. Con una terminal interactiva se puede acceder al docker y ver variables de entorno, instalar, configurar... Permite comunicar el host con el docker en varias direcciones_
 
 ## Recursos
 
