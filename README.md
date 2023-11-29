@@ -298,6 +298,22 @@ docker container logs -f <id>
 ```sh
 # Iniciar la terminal interactiva (comando shell) dentro del contenedor
 docker exec -it <id> /bin/sh
+
+# Se sale de la terminal con comando `exit`
+```
+
+- Limpieza de lo realizado en esta sección
+
+```sh
+# descargar imagen del docker postgress tag 15.1
+docker pull postgres:15.1
+
+# Listar images para eliminar lo no deseado
+docker image ls
+docker image rm -f <id>
+
+docker network ls
+docker network prune
 ```
 
 ## Recursos
