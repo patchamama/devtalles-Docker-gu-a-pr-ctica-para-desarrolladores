@@ -180,6 +180,28 @@ docker container run \
 mariadb:jammy
 ```
 
+Sí se borra el contenedor, los datos se mantienen persistentes en `/var/lib/mysql` gracias a la opcion `--volume world-db:/var/lib/mysql`
+
+- PHPMyAdmin
+
+```sh
+
+# crear volumen (https://hub.docker.com/_/phpmyadmin/tags) con tag `5.2.0-apache`
+docker container run \
+--name phpmyadmin \
+-d \
+-e PMA_ARBITRARY=1 \
+-p 8080:80 \
+phpmyadmin:5.2.0-apache
+
+# Abrir phpmyadmin en el browser cargado en el contenedor (no es necesario tener datos persistentes)
+browser http://localhost:8080
+# El contenedor no tiene acceso al de la base de datos de world-db con mariaDB al no estar el segundo expuesto.
+
+# Conectar el contenedor de phpmyadmin con el de mariaDB con word-db (dos conetenedores)
+
+```
+
 ## Recursos
 
 - [https://hub.docker.com/\_/hello-world](https://hub.docker.com/_/hello-world)
