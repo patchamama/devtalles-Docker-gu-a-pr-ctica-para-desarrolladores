@@ -272,6 +272,24 @@ docker network prune
 
 _Permite conectar dos o varios filesystem. También podremos install apps, módulos. Con una terminal interactiva se puede acceder al docker y ver variables de entorno, instalar, configurar... Permite comunicar el host con el docker en varias direcciones_
 
+- Ejercicio - Bind Volumes (https://import.cdn.thinkific.com/643563/courses/2100309/nestgraphqlapp-221207-123302.zip)
+
+```sh
+# descargar [esto](https://import.cdn.thinkific.com/643563/courses/2100309/nestgraphqlapp-221207-123302.zip) y descomprimirlo... copiarlo en una carpeta y `cd nest-graphql`
+
+# Ejecutar un contenedor e instalar las dependencias, más ejecutar la app...
+docker container run \
+--name nest-app \
+-w /app \
+-p 8080:3000 \
+-v "$(pwd)":/app \
+node:18.16-alpine3.16 \
+sh -c "yarn install && yarn start:dev"
+
+# Abrir el navegador
+localhost:8080/graphql
+```
+
 ## Recursos
 
 - [https://hub.docker.com/\_/hello-world](https://hub.docker.com/_/hello-world)
