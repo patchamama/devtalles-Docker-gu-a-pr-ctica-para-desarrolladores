@@ -150,6 +150,36 @@ docker container ls
 docker container rm -f <id-del-container>
 ```
 
+---
+
+- Tipos de volúmenes
+
+  - Named volumes
+  - Bind volumes
+  - Anonymouse volumes
+
+```sh
+# Crear un volumen (world-db)
+docker volume create world-db
+
+# Listar los volumenes
+docker volume ls
+
+# Ver detalles del volumen
+docker volume inspect world-db
+
+# crear volumen (https://hub.docker.com/_/mariadb)
+docker container run \
+--name world-db \
+--env MARIADB_USER=example-user \
+--env MARIADB_PASSWORD=user-password \
+--env MARIADB_ROOT_PASSWORD=root-secret-password \
+--env MARIADB_DATABASE=world-db \
+-dp 3306:3306 \
+--volume world-db:/var/lib/mysql \
+mariadb:jammy
+```
+
 ## Recursos
 
 - [https://hub.docker.com/\_/hello-world](https://hub.docker.com/_/hello-world)
