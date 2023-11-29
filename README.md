@@ -240,7 +240,7 @@ docker container run \
 --env MARIADB_DATABASE=world-db \
 -dp 3306:3306 \
 --volume world-db:/var/lib/mysql \
---network word-app \
+--network world-app \
 mariadb:jammy
 
 docker container run \
@@ -248,9 +248,19 @@ docker container run \
 -d \
 -e PMA_ARBITRARY=1 \
 -p 8080:80 \
---network word-app \
+--network world-app \
 phpmyadmin:5.2.0-apache
+```
 
+- Borrar todos los contenedores, volúmenes y la red
+
+```sh
+docker container ls
+docker volumens ls
+
+docker container rm -f <id1 id2 ids....>
+docker volumes rm -f
+docker network prune
 ```
 
 ## Recursos
