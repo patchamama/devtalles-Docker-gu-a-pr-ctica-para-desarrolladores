@@ -293,6 +293,13 @@ localhost:8080/graphql
 docker container logs -f <id>
 ```
 
+- Terminal interactiva -it
+
+```sh
+# Iniciar la terminal interactiva (comando shell) dentro del contenedor
+docker exec -it <id> /bin/sh
+```
+
 ## Recursos
 
 - [https://hub.docker.com/\_/hello-world](https://hub.docker.com/_/hello-world)
