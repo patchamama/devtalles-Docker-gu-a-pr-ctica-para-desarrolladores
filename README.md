@@ -281,13 +281,16 @@ _Permite conectar dos o varios filesystem. También podremos install apps, módu
 docker container run \
 --name nest-app \
 -w /app \
--p 8080:3000 \
+-dp 8080:3000 \
 -v "$(pwd)":/app \
 node:18.16-alpine3.16 \
 sh -c "yarn install && yarn start:dev"
 
 # Abrir el navegador
 localhost:8080/graphql
+
+# ver los logs con follow...
+docker container logs -f <id>
 ```
 
 ## Recursos
