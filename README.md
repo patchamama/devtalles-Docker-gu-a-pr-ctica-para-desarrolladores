@@ -402,8 +402,13 @@ docker compose up
 # detener y quitar volúmenes
 # docker compose down
 
-# open table-plus > mongo (beta) > url: mongodb://localhost:27017
+# open table-plus > mongo (beta) > url: mongodb://strider:123456789@localhost:27017
 ```
+
+- Variables de entorno - MongoDB
+
+Se crear un archivo [.env](pockemon-app/.env) con variables de entorno que se usan en el archivo [docker-compose.yml](pockemon-app/docker-compose.yml)
+Normalmente el archivo .env se incluye en el archivo .gitignore para que no se comparta.
 
 ## Recursos
 
