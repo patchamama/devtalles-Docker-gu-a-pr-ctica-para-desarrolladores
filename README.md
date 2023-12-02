@@ -346,13 +346,27 @@ docker network connect postgres-net <id2>
 
 browse http://localhost:8080/
 
-username: superman@google.com
-passwd: 123456
+# username: superman@google.com
+# passwd: 123456
 
-Add New Server > SuperHeroesDB
-Connection > host: postgres-db user: postgres pass: 1234556
+# Add New Server > SuperHeroesDB
+# Connection > host: postgres-db user: postgres pass: 1234556
+```
 
+- Docker Compose - Multi Container Apps
 
+_https://gist.github.com/Klerith/86baf403cc922d03c86fac0b5ceacd3b_
+
+```sh
+cd postgres-pgadmin
+docker compose up docker-compose.yml
+
+# locahost:8080
+# username: superman@google.com
+# passwd: 123456
+# host: postgres_database
+# user: postgres
+# pass: 123456
 ```
 
 ## Recursos
