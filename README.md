@@ -357,9 +357,20 @@ browse http://localhost:8080/
 
 _https://gist.github.com/Klerith/86baf403cc922d03c86fac0b5ceacd3b_
 
+Ver [docker-compose.yml](postgres-pgadmin/docker-compose.yml)
+
 ```sh
 cd postgres-pgadmin
 docker compose up docker-compose.yml
+
+# Eliminar el compose
+docker compose down
+
+# eliminar todos los volúmenes
+# docker volume prune
+
+# ver los logs
+# docker compose logs -f
 
 # locahost:8080
 # username: superman@google.com
@@ -367,6 +378,17 @@ docker compose up docker-compose.yml
 # host: postgres_database
 # user: postgres
 # pass: 123456
+```
+
+- Bind Volumes - Docker Compose
+
+_https://gist.github.com/Klerith/7b267874af0bdb8454b6331758d2bfa3_
+
+Usar section de conf-compose.yml:
+
+```
+volumes:
+      - ./pgadmin:/var/lib/pgadmin
 ```
 
 ## Recursos
