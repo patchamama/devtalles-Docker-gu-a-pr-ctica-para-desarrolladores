@@ -391,6 +391,20 @@ volumes:
       - ./pgadmin:/var/lib/pgadmin
 ```
 
+- Multi-container app - Base de datos Mongo
+
+[docker-compose.yml](pockemon-app/docker-compose.yml)
+
+```sh
+cd pockemon-app
+docker compose up
+
+# detener y quitar volúmenes
+# docker compose down
+
+# open table-plus > mongo (beta) > url: mongodb://localhost:27017
+```
+
 ## Recursos
 
 - [https://hub.docker.com/\_/hello-world](https://hub.docker.com/_/hello-world)

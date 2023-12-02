@@ -1,0 +1,15 @@
+version: '3'
+
+service:
+  db:
+    container_name: pockemon-db
+    image: mongo:6.0
+    volumes:
+      - poke-vol:/data/db
+    ports:
+      - 27017:27017
+    restart: always
+
+volumes:
+  poke-vol:
+    eternal: false
