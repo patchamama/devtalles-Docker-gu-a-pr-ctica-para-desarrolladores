@@ -318,7 +318,40 @@ docker network prune
 
 ## Sección 4: Multi-container Apps - Docker Compose
 
+- Laboratorio: Reforzamiento de lo aprendido
+
+_Ver https://gist.github.com/Klerith/8cfc637868212cfb888333ecaa6080e1_
+
 ```sh
+docker volume create postgres-db
+
+docker container run \
+-d \
+--name postgres-db \
+-e POSTGRES_PASSWORD=123456 \
+-v postgres-db:/var/lib/postgresql/data \
+postgres:15-alpine
+
+docker container run \
+--name pgAdmin \
+-e PGADMIN_DEFAULT_PASSWORD=123456 \
+-e PGADMIN_DEFAULT_EMAIL=superman@google.com \
+-dp 8080:80 \
+dpage/pgadmin4:6.17
+
+docker network create postgres-net
+docker container ls
+docker network connect postgres-net <id1>
+docker network connect postgres-net <id2>
+
+browse http://localhost:8080/
+
+username: superman@google.com
+passwd: 123456
+
+Add New Server > SuperHeroesDB
+Connection > host: postgres-db user: postgres pass: 1234556
+
 
 ```
 
