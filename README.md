@@ -410,6 +410,15 @@ docker compose up
 Se crear un archivo [.env](pockemon-app/.env) con variables de entorno que se usan en el archivo [docker-compose.yml](pockemon-app/docker-compose.yml)
 Normalmente el archivo .env se incluye en el archivo .gitignore para que no se comparta.
 
+- Multi-container app - Visor de Bases de datos
+
+Se puede eliminar la exposición de los puertos 27017 pues solo se accederá a estos internamente en el contenedor y la red interna del mismo:
+
+```
+# ports:
+    #   - 27017:27017  # Uncomment this line if you want to access the database from outside the docker network
+```
+
 ## Recursos
 
 - [https://hub.docker.com/\_/hello-world](https://hub.docker.com/_/hello-world)
