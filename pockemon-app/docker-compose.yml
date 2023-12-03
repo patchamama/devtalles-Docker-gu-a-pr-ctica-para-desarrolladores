@@ -7,7 +7,7 @@ services:
     volumes:
       - poke-vol:/data/db
     # ports:
-    #   - 27017:27017  # Uncomment this line if you want to access the database from outside the docker network
+    #   - 27017:27017
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_USERNAME}
@@ -24,6 +24,18 @@ services:
       ME_CONFIG_MONGODB_SERVER: ${MONGO_DB_NAME}
     ports:
       - 8080:8081
+    restart: always
+
+  poke-app:
+    depends_on:
+      - db
+      - mongo-express
+    image: klerith/pokemon-nest-app:1.0.0
+    ports:
+      - 3000:3000
+    environment:
+      MONGODB: mongodb://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_DB_NAME}:27017
+      DB_NAME: ${MONGO_DB_NAME}
     restart: always
 
 volumes:

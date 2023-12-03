@@ -419,6 +419,18 @@ Se puede eliminar la exposición de los puertos 27017 pues solo se accederá a e
     #   - 27017:27017  # Uncomment this line if you want to access the database from outside the docker network
 ```
 
+- Multi-container app - Aplicación de Nest
+
+_https://hub.docker.com/r/klerith/pokemon-nest-app_
+
+```sh
+docker compose down
+docker compose up -d
+
+# http://localhost:8080/
+# http://localhost:3000
+```
+
 ## Recursos
 
 - [https://hub.docker.com/\_/hello-world](https://hub.docker.com/_/hello-world)
