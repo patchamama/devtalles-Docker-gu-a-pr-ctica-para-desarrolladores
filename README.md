@@ -422,6 +422,7 @@ Se puede eliminar la exposición de los puertos 27017 pues solo se accederá a e
 - Multi-container app - Aplicación de Nest
 
 _https://hub.docker.com/r/klerith/pokemon-nest-app_
+_https://gist.github.com/Klerith/0df06c9aaafeff39e8a6129f6e7d35d9_
 
 ```sh
 docker compose down
