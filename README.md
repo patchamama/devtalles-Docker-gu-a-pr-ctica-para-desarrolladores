@@ -431,6 +431,18 @@ docker compose up -d
 # http://localhost:3000
 ```
 
+- Limpieza
+
+```sh
+# Limpieza
+docker compose down
+docker volume ls
+docker volume rm -f pockemon-app_poke-vol
+docker image ls
+docker image [prune] / rm <ids>
+docker buildx ls
+```
+
 ## Recursos
 
 - [https://hub.docker.com/\_/hello-world](https://hub.docker.com/_/hello-world)
